@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 255 255 255;
+  --foreground: 23 23 23;
+  --primary: 254 216 53;
+  --secondary: 30 58 138;
+
+  --primary-accent: 229 194 48;
+  --foreground-accent: 69 69 69;
+  --hero-background: 243 243 245;
+}
+
+html {
+  @apply scroll-smooth;
+}
+
+/* Scroll margin so fixed mobile header doesn't hide section content */
+#hero,
+#about,
+#features,
+#pricing,
+#contact,
+#faq,
+#cta {
+  scroll-margin-top: 5.5rem;
+}
+
+body {
+  @apply text-lg;
+
+  color: var(--foreground);
+  background: var(--background);
+  font-family: "Source Sans 3", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.manrope {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+#logos svg {
+  @apply w-fit h-10 sm:h-12;
+}
+
+.benefit-section:last-of-type>div {
+  @apply mb-10;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out;
+}
