@@ -110,7 +110,7 @@ const About: React.FC = () => {
                     >
                         <div className="bg-white rounded-2xl p-10 md:p-14 border-2 border-gray-100 shadow-sm flex flex-col items-center justify-center gap-6 text-center">
                             <p className="text-2xl md:text-3xl font-serif italic text-foreground max-w-5xl leading-relaxed">
-                                "We believe success is not about having more tools, it’s about having the right structure."
+                                &ldquo;We believe success is not about having more tools, it&apos;s about having the right structure.&rdquo;
                             </p>
                         </div>
                     </motion.div>

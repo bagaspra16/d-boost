@@ -16,7 +16,7 @@ const ContactHeader: React.FC = () => {
                 </h2>
                 <p className="text-xl md:text-2xl text-foreground max-w-3xl mx-auto leading-relaxed">
                     Ready to transform your business? <br className="hidden md:block" />
-                    Reach out today and let's build your <span className="font-semibold text-secondary">Digital Future Together.</span>
+                    Reach out today and let&apos;s build your <span className="font-semibold text-secondary">Digital Future Together.</span>
                 </p>
             </motion.div>
         </div>

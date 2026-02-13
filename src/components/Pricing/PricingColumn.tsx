@@ -41,7 +41,7 @@ const PricingColumn: React.FC<Props> = ({ tier, highlight }: Props) => {
 
                 {tier.tagline && (
                     <div className="pt-6 border-t border-gray-100 mt-auto">
-                        <p className="text-sm font-medium text-center italic text-gray-600">"{tier.tagline}"</p>
+                        <p className="text-sm font-medium text-center italic text-gray-600">&ldquo;{tier.tagline}&rdquo;</p>
                     </div>
                 )}
             </div>
