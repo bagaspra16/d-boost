@@ -1,11 +1,13 @@
 "use client"
-import { features } from "@/data/features";
+import { useLanguage } from "@/context/LanguageContext";
 
 const Features: React.FC = () => {
+    const { t } = useLanguage();
+
     return (
         <section className="py-16 lg:py-24">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-                {features.map((feature, index) => (
+                {t.features.map((feature, index) => (
                     <div
                         key={index}
                         className="text-center group hover:scale-105 transition-transform duration-300"

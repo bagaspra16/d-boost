@@ -3,15 +3,30 @@ export const siteDetails = {
     /** Base URL for production (no trailing slash). Override with NEXT_PUBLIC_SITE_URL on Vercel. */
     siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://d-boost.vercel.app',
     metadata: {
-        title: 'D-BOOST - Digital Empowerment Platform',
+        title: 'D-BOOST – Aplikasi Manajemen Bisnis Digital untuk UMKM',
         titleTemplate: '%s | D-BOOST',
-        description: 'D-BOOST is an integrated digital business platform designed to help entrepreneurs and MSMEs manage, grow, and scale their business with structured systems and AI-powered guidance.',
-        keywords: ['D-BOOST', 'UMKM', 'MSME', 'digital business', 'business platform', 'entrepreneur', 'Southeast Asia', 'AI business', 'business management'],
+        description: 'D-BOOST adalah platform bisnis digital all-in-one untuk UMKM dan pengusaha Indonesia. Kelola penjualan, inventaris, laporan keuangan, dan dapatkan panduan AI dari Deby — semua dalam satu aplikasi. Coba gratis sekarang!',
+        keywords: [
+            // Brand
+            'D-BOOST', 'dboost', 'dboost app',
+            // Indonesian UMKM terms
+            'aplikasi UMKM', 'aplikasi manajemen bisnis', 'aplikasi kasir digital',
+            'manajemen bisnis digital', 'sistem bisnis digital', 'platform UMKM Indonesia',
+            'aplikasi bisnis Indonesia', 'software kasir UMKM', 'laporan keuangan UMKM',
+            'aplikasi stok barang', 'manajemen inventaris', 'AI untuk UMKM',
+            'asisten bisnis AI', 'digitalisasi UMKM', 'aplikasi pengusaha',
+            'sistem manajemen usaha', 'analisis data bisnis', 'laporan laba rugi UMKM',
+            // English terms
+            'MSME platform', 'digital business platform', 'business management app',
+            'AI business assistant', 'inventory management', 'sales tracking app',
+            'small business software', 'entrepreneur app', 'business analytics',
+            'Southeast Asia MSME', 'Indonesia business app',
+        ],
     },
-    language: 'en-us',
-    locale: 'en-US',
-    siteLogo: `${process.env.BASE_PATH || ''}/images/logo.png`, // or use a string for the logo e.g. "TechStartup"
-    googleAnalyticsId: '', // e.g. G-XXXXXXX,
+    language: 'id',
+    locale: 'id-ID',
+    siteLogo: `${process.env.BASE_PATH || ''}/images/logo.png`,
+    googleAnalyticsId: '', // e.g. G-XXXXXXX
     contact: {
         email: 'dboostapp@gmail.com',
         phone: '+62 856-9393-0137',

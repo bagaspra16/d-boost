@@ -8,14 +8,65 @@ import { HiOutlineXMark, HiBars3 } from 'react-icons/hi2';
 
 import Container from './Container';
 import { siteDetails } from '@/data/siteDetails';
-import { menuItems } from '@/data/menuItems';
+import { useLanguage } from '@/context/LanguageContext';
+import { Lang } from '@/i18n/translations';
 
 const SECTION_IDS = ['hero', 'about', 'features', 'pricing', 'contact', 'faq', 'cta'];
 const HEADER_OFFSET = 120;
 
+// ─── Language Switcher ──────────────────────────────────────────────────────
+
+const LanguageSwitcher: React.FC<{ className?: string }> = ({ className = '' }) => {
+    const { lang, setLang } = useLanguage();
+
+    return (
+        <div className={`relative flex items-center bg-gray-100/90 backdrop-blur-sm border border-gray-200/60 rounded-full p-1 shadow-inner ${className}`}>
+            {/* Sliding active indicator pill */}
+            <div
+                className={`absolute top-1 bottom-1 w-[calc(50%-4px)] bg-white rounded-full shadow-sm border border-gray-200/50 transition-all duration-300 cubic-bezier(0.4,0,0.2,1) ${
+                    lang === 'id' ? 'left-1' : 'left-[calc(50%+2px)]'
+                }`}
+            />
+            <button
+                type="button"
+                onClick={() => setLang('id')}
+                title="Bahasa Indonesia"
+                aria-label="Switch to Bahasa Indonesia"
+                className={`relative z-10 px-3 py-1 text-xs sm:text-sm font-bold tracking-wide transition-colors duration-200 ${
+                    lang === 'id' ? 'text-blue-950' : 'text-gray-500 hover:text-gray-900'
+                }`}
+            >
+                ID
+            </button>
+            <button
+                type="button"
+                onClick={() => setLang('en')}
+                title="English"
+                aria-label="Switch to English"
+                className={`relative z-10 px-3 py-1 text-xs sm:text-sm font-bold tracking-wide transition-colors duration-200 ${
+                    lang === 'en' ? 'text-blue-950' : 'text-gray-500 hover:text-gray-900'
+                }`}
+            >
+                EN
+            </button>
+        </div>
+    );
+};
+
+// ─── Header ─────────────────────────────────────────────────────────────────
+
 const Header: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [activeSection, setActiveSection] = useState<string>('hero');
+    const { t } = useLanguage();
+
+    // Build nav items dynamically from translations
+    const menuItems = [
+        { text: t.nav.about, url: '#about' },
+        { text: t.nav.features, url: '#features' },
+        { text: t.nav.pricing, url: '#pricing' },
+        { text: t.nav.contact, url: '#contact' },
+    ];
 
     const updateActiveSection = useCallback(() => {
         let best: string | null = null;
@@ -92,7 +143,7 @@ const Header: React.FC = () => {
                     {/* Desktop Menu */}
                     <ul className="hidden md:flex space-x-6 items-center">
                         {menuItems.map((item) => (
-                            <li key={item.text}>
+                            <li key={item.url}>
                                 <a
                                     href={item.url}
                                     onClick={(e) => handleNavClick(e, item.url)}
@@ -103,18 +154,22 @@ const Header: React.FC = () => {
                             </li>
                         ))}
                         <li>
+                            <LanguageSwitcher />
+                        </li>
+                        <li>
                             <a
                                 href="#cta"
                                 onClick={(e) => handleNavClick(e, '#cta')}
                                 className={`text-black bg-primary hover:bg-primary-accent px-8 py-3 rounded-full transition-colors ${activeSection === 'cta' ? 'ring-2 ring-foreground/20' : ''}`}
                             >
-                                Download
+                                {t.nav.download}
                             </a>
                         </li>
                     </ul>
 
                     {/* Mobile Menu Button */}
-                    <div className="md:hidden flex items-center">
+                    <div className="md:hidden flex items-center gap-2">
+                        <LanguageSwitcher />
                         <button
                             onClick={toggleMenu}
                             type="button"
@@ -146,7 +201,7 @@ const Header: React.FC = () => {
                 <div id="mobile-menu" className="md:hidden bg-white shadow-lg border-t border-gray-100">
                     <ul className="flex flex-col space-y-1 pt-2 pb-6 px-6">
                         {menuItems.map((item) => (
-                            <li key={item.text}>
+                            <li key={item.url}>
                                 <a
                                     href={item.url}
                                     onClick={(e) => handleNavClick(e, item.url)}
@@ -162,7 +217,7 @@ const Header: React.FC = () => {
                                 onClick={(e) => handleNavClick(e, '#cta')}
                                 className="text-black bg-primary hover:bg-primary-accent px-5 py-2.5 rounded-full block w-fit font-medium"
                             >
-                                Get Started
+                                {t.nav.getStarted}
                             </a>
                         </li>
                     </ul>

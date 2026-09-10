@@ -1,8 +1,12 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 const ContactHeader: React.FC = () => {
+    const { t } = useLanguage();
+    const c = t.contact;
+
     return (
         <div className="text-center mb-16 relative z-10">
             <motion.div
@@ -11,12 +15,12 @@ const ContactHeader: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
             >
-                <h2 className="text-xl md:text-4xl lg:text-5xl font-bold font-bold text-black mb-6">
-                    Contact Us
+                <h2 className="text-xl md:text-4xl lg:text-5xl font-bold text-black mb-6">
+                    {c.sectionTitle}
                 </h2>
                 <p className="text-xl md:text-2xl text-foreground max-w-3xl mx-auto leading-relaxed">
-                    Ready to transform your business? <br className="hidden md:block" />
-                    Reach out today and let&apos;s build your <span className="font-semibold text-secondary">Digital Future Together.</span>
+                    {c.sectionSubtitle} <br className="hidden md:block" />
+                    <span className="font-semibold text-secondary">{c.sectionSubtitleAccent}</span>
                 </p>
             </motion.div>
         </div>

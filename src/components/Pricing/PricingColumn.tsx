@@ -1,15 +1,26 @@
+'use client';
+
 import clsx from "clsx";
 import { BsFillCheckCircleFill } from "react-icons/bs";
 
-import { IPricing } from "@/types";
+interface PricingTier {
+    name: string;
+    price: string | number;
+    description?: string;
+    tagline?: string;
+    features: readonly string[];
+    cta?: string;
+}
 
 interface Props {
-    tier: IPricing;
+    tier: PricingTier;
     highlight?: boolean;
 }
 
 const PricingColumn: React.FC<Props> = ({ tier, highlight }: Props) => {
-    const { name, price, features } = tier;
+    const { name, price, features, cta } = tier;
+
+    const perMonth = price === 'Rp 100.000' || (typeof price === 'number' && price > 0);
 
     return (
         <div className={clsx("w-full max-w-sm mx-auto bg-white rounded-xl border border-gray-200 lg:max-w-full", { "shadow-lg": highlight })}>
@@ -19,15 +30,22 @@ const PricingColumn: React.FC<Props> = ({ tier, highlight }: Props) => {
                     <span className={clsx({ "text-secondary": highlight })}>
                         {typeof price === 'number' ? `$${price}` : price}
                     </span>
-                    {typeof price === 'number' && <span className="text-lg font-normal text-gray-600">/mo</span>}
-                    {(price === 'Rp 100.000' || price === 'Rp 0') && <span className="text-lg font-normal text-gray-600"> / month</span>}
+                    {perMonth && (
+                        <span className="text-lg font-normal text-gray-600"> / bln</span>
+                    )}
                 </p>
-                <button className={clsx("w-full py-3 px-4 rounded-full transition-colors font-semibold", { "bg-primary hover:bg-primary-accent": highlight, "bg-gray-100 hover:bg-gray-200": !highlight })}>
-                    {highlight ? "Get Started" : "Start for Free"}
-                </button>
+                <a
+                    href="#cta"
+                    className={clsx("w-full py-3 px-4 rounded-full transition-colors font-semibold block text-center", {
+                        "bg-primary hover:bg-primary-accent": highlight,
+                        "bg-gray-100 hover:bg-gray-200": !highlight
+                    })}
+                >
+                    {cta ?? (highlight ? 'Get Started' : 'Start for Free')}
+                </a>
             </div>
             <div className="p-6 mt-1 flex flex-col flex-grow">
-                <p className="font-bold mb-2">FEATURES</p>
+                <p className="font-bold mb-2 uppercase tracking-wide text-sm text-gray-500">Features</p>
                 {tier.description && <p className="text-foreground-accent mb-5 text-sm">{tier.description}</p>}
 
                 <ul className="space-y-4 mb-8 flex-grow">

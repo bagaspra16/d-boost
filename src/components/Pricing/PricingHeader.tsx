@@ -1,8 +1,12 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 const PricingHeader: React.FC = () => {
+    const { t } = useLanguage();
+    const p = t.pricing;
+
     return (
         <div className="text-center mb-16 relative z-10">
             <motion.div
@@ -11,12 +15,12 @@ const PricingHeader: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
             >
-                <h2 className="text-xl md:text-4xl lg:text-5xl font-bold font-bold text-black mb-6">
-                    Pricing
+                <h2 className="text-xl md:text-4xl lg:text-5xl font-bold text-black mb-6">
+                    {p.title}
                 </h2>
                 <p className="text-xl md:text-2xl text-foreground max-w-3xl mx-auto leading-relaxed">
-                    Unlock premium business tools without the premium price tag. <br className="hidden md:block" />
-                    Designed for your success, from <span className="font-semibold text-secondary">Day 1 to Global Scale.</span>
+                    {p.subtitle} <br className="hidden md:block" />
+                    <span className="font-semibold text-secondary">{p.subtitleAccent}</span>
                 </p>
             </motion.div>
         </div>

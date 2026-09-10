@@ -1,15 +1,21 @@
+'use client';
+
 import React from 'react';
 import { siteDetails } from '@/data/siteDetails';
 import { MdEmail, MdPhone, MdLocationOn } from 'react-icons/md';
 import { FaInstagram, FaTiktok } from 'react-icons/fa';
 import Link from 'next/link';
+import { useLanguage } from '@/context/LanguageContext';
 
 const Contact: React.FC = () => {
+    const { t } = useLanguage();
+    const c = t.contact;
+
     return (
         <div className="flex flex-col lg:flex-row gap-10 items-stretch max-w-6xl mx-auto">
             {/* Contact Info */}
             <div className="flex-1 bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-center">
-                <h3 className="text-3xl font-bold mb-8 text-foreground">Get in Touch</h3>
+                <h3 className="text-3xl font-bold mb-8 text-foreground">{c.getInTouch}</h3>
 
                 <div className="space-y-6">
                     <div className="flex items-center gap-4">
@@ -17,7 +23,7 @@ const Contact: React.FC = () => {
                             <MdEmail size={24} />
                         </div>
                         <div>
-                            <p className="text-sm text-gray-500 font-medium">Email</p>
+                            <p className="text-sm text-gray-500 font-medium">{c.email}</p>
                             <a href={`mailto:${siteDetails.contact.email}`} className="text-lg font-semibold hover:text-secondary transition-colors">
                                 {siteDetails.contact.email}
                             </a>
@@ -29,7 +35,7 @@ const Contact: React.FC = () => {
                             <MdPhone size={24} />
                         </div>
                         <div>
-                            <p className="text-sm text-gray-500 font-medium">Phone</p>
+                            <p className="text-sm text-gray-500 font-medium">{c.phone}</p>
                             <a href={`tel:${siteDetails.contact.phone}`} className="text-lg font-semibold hover:text-secondary transition-colors">
                                 {siteDetails.contact.phone}
                             </a>
@@ -41,7 +47,7 @@ const Contact: React.FC = () => {
                             <MdLocationOn size={24} />
                         </div>
                         <div>
-                            <p className="text-sm text-gray-500 font-medium">Location</p>
+                            <p className="text-sm text-gray-500 font-medium">{c.location}</p>
                             <p className="text-lg font-semibold text-foreground">
                                 {siteDetails.contact.address}
                             </p>
@@ -50,12 +56,12 @@ const Contact: React.FC = () => {
                 </div>
 
                 <div className="mt-10 pt-8 border-t border-gray-100">
-                    <p className="text-sm text-gray-500 font-medium mb-4">Follow Us</p>
+                    <p className="text-sm text-gray-500 font-medium mb-4">{c.followUs}</p>
                     <div className="flex gap-4">
-                        <Link href={siteDetails.contact.instagram} target="_blank" className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center text-foreground hover:bg-secondary hover:text-white transition-all duration-300">
+                        <Link href={siteDetails.contact.instagram} target="_blank" aria-label="Instagram" className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center text-foreground hover:bg-secondary hover:text-white transition-all duration-300">
                             <FaInstagram size={24} />
                         </Link>
-                        <Link href={siteDetails.contact.tiktok} target="_blank" className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center text-foreground hover:bg-secondary hover:text-white transition-all duration-300">
+                        <Link href={siteDetails.contact.tiktok} target="_blank" aria-label="TikTok" className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center text-foreground hover:bg-secondary hover:text-white transition-all duration-300">
                             <FaTiktok size={24} />
                         </Link>
                     </div>
@@ -73,6 +79,7 @@ const Contact: React.FC = () => {
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     className="absolute inset-0"
+                    title="D-BOOST Office Location"
                 />
             </div>
         </div>
