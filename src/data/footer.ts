@@ -23,7 +23,7 @@ export const footerDetails: {
         }
     ],
     email: 'dboostapp@gmail.com',
-    telephone: '+62 812-3456-7890',
+    telephone: '+62 856-9393-0137',
     socials: {
         instagram: 'https://www.instagram.com/dboost.app',
         tiktok: 'https://www.tiktok.com/@dboost.app',

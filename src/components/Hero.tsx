@@ -88,7 +88,7 @@ const Hero: React.FC = () => {
                         sizes="(max-width: 768px) 100vw, 384px"
                         priority={true}
                         unoptimized={true}
-                        alt="D-BOOST app mockup"
+                        alt="D-BOOST aplikasi manajemen bisnis UMKM — tampilan dashboard mobile kasir digital dan laporan keuangan"
                         className="mx-auto drop-shadow-2xl transition-transform duration-300 group-hover:-translate-y-1 block -mb-1 relative z-10"
                     />
                 </motion.div>

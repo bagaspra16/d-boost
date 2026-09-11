@@ -48,6 +48,7 @@ export interface ISocials {
     instagram?: string;
     linkedin?: string;
     threads?: string;
+    tiktok?: string;
     twitter?: string;
     youtube?: string;
     x?: string;

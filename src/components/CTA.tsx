@@ -16,7 +16,7 @@ const CTA: React.FC = () => {
                     </div>
 
                     <div className="h-full flex flex-col items-center justify-center text-white text-center px-5">
-                        <h2 className="text-2xl sm:text-3xl md:text-5xl md:leading-tight font-semibold mb-4 max-w-2xl">
+                        <h2 className="text-2xl sm:text-3xl md:text-5xl md:leading-tight font-semibold mb-4 max-w-2xl whitespace-nowrap">
                             {cta.heading}{' '}
                             <span className="font-playfair italic font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-200">
                                 {cta.headingAccent}

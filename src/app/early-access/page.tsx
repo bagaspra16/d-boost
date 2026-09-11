@@ -6,22 +6,81 @@ import { earlyAccessDetails } from '@/data/earlyAccess';
 import { siteDetails } from '@/data/siteDetails';
 
 const baseUrl = siteDetails.siteUrl;
+const pageUrl = `${baseUrl}/early-access`;
 
 export const metadata: Metadata = {
-  title: 'Get Early Access',
-  description: earlyAccessDetails.subheading || 'Join the waitlist for D-BOOST and get early access to the digital business platform for entrepreneurs and MSMEs.',
+  title: 'Daftar Early Access D-BOOST – Aplikasi Manajemen Bisnis UMKM',
+  description:
+    'Daftar early access D-BOOST dan jadilah yang pertama merasakan platform manajemen bisnis digital untuk UMKM Indonesia. Kasir digital, kontrol stok, laporan keuangan, dan asisten AI Deby — semua gratis.',
   openGraph: {
-    title: 'Get Early Access | D-BOOST',
-    description: earlyAccessDetails.subheading,
-    url: `${baseUrl}/early-access`,
+    title: 'Daftar Early Access D-BOOST – Aplikasi UMKM Digital Indonesia',
+    description:
+      'Jadilah pengguna pertama D-BOOST. Platform manajemen bisnis all-in-one untuk UMKM — kasir digital, inventaris, laporan keuangan, dan AI assistant Deby.',
+    url: pageUrl,
     type: 'website',
+    locale: 'id_ID',
+    siteName: siteDetails.siteName,
+    images: [
+      {
+        url: '/images/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'D-BOOST Early Access – Aplikasi Manajemen Bisnis UMKM Digital Indonesia',
+      },
+    ],
   },
-  alternates: { canonical: `${baseUrl}/early-access` },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Daftar Early Access D-BOOST – Aplikasi UMKM Digital Indonesia',
+    description:
+      'Jadilah pengguna pertama D-BOOST. Platform manajemen bisnis all-in-one untuk UMKM.',
+    images: ['/images/og-image.jpg'],
+  },
+  alternates: {
+    canonical: pageUrl,
+    languages: {
+      'id-ID': pageUrl,
+      'en-US': pageUrl,
+    },
+  },
   robots: { index: true, follow: true },
 };
 
+// ─── BreadcrumbList Structured Data ─────────────────────────────────────────
+
+function BreadcrumbJsonLd() {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Beranda',
+        item: baseUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Early Access',
+        item: pageUrl,
+      },
+    ],
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+
 const EarlyAccessPage: React.FC = () => {
     return (
+    <>
+    <BreadcrumbJsonLd />
         <section
             id="early-access"
             className="relative flex items-center justify-center min-h-screen px-5 py-20"
@@ -56,7 +115,7 @@ const EarlyAccessPage: React.FC = () => {
                             d="M10 19l-7-7m0 0l7-7m-7 7h18"
                         />
                     </svg>
-                    <span className="font-medium">Back to Home</span>
+                    <span className="font-medium">Kembali ke Beranda</span>
                 </Link>
 
                 {/* Icon/Logo */}
@@ -81,7 +140,7 @@ const EarlyAccessPage: React.FC = () => {
                 {/* Heading */}
                 <div className="flex justify-center w-full mb-4">
                     <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground text-center leading-tight whitespace-nowrap">
-                        Get Early Access to <span className="text-blue-900 font-extrabold">D-BOOST</span>
+                        Daftar Early Access <span className="text-blue-900 font-extrabold">D-BOOST</span>
                     </h1>
                 </div>
 
@@ -99,6 +158,7 @@ const EarlyAccessPage: React.FC = () => {
                 </p>
             </div>
         </section>
+    </>
     );
 };
 

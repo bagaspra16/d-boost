@@ -33,7 +33,7 @@ function detectDeviceLang(): Lang {
 }
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>('en'); // SSR default
+  const [lang, setLangState] = useState<Lang>('id'); // SSR default → Indonesian (target market)
   const [isPending, setIsPending] = useState<boolean>(false);
 
   useEffect(() => {

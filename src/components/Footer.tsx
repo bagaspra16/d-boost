@@ -19,8 +19,8 @@ const Footer: React.FC = () => {
     ];
 
     const socials = {
-        instagram: 'https://www.instagram.com/dboost.app',
-        tiktok: 'https://www.tiktok.com/@dboost.app',
+        instagram: siteDetails.contact.instagram,
+        tiktok: siteDetails.contact.tiktok,
     };
 
     return (

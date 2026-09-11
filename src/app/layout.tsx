@@ -77,7 +77,7 @@ export const metadata: Metadata = {
         url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: `${siteDetails.siteName} – Aplikasi Manajemen Bisnis UMKM Digital`,
+        alt: `${siteDetails.siteName} – Aplikasi Manajemen Bisnis UMKM untuk Pengusaha Indonesia`,
       },
     ],
   },
@@ -92,14 +92,12 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true, 'max-image-preview': 'large' },
   },
-  alternates: {
-    canonical: baseUrl,
-    languages: {
-      'id-ID': `${baseUrl}`,
-      'en-US': `${baseUrl}`,
-    },
-  },
+  // NOTE: No global canonical here — each page sets its own via alternates.canonical
+  // Homepage canonical is set on the homepage itself via page-level metadata
   category: 'business',
+  verification: {
+    google: '6hmC4VaQmzHItWWinjp0pXiqCYYMU3Thpv73IKukQa0',
+  },
 };
 
 // ─── Structured Data ─────────────────────────────────────────────────────────
@@ -121,7 +119,11 @@ function JsonLd() {
       availableLanguage: ['Indonesian', 'English'],
       contactType: 'customer service',
     },
-    sameAs: [siteDetails.contact.instagram, siteDetails.contact.tiktok].filter(Boolean),
+    sameAs: [
+      siteDetails.contact.instagram,
+      // Strip UTM/tracking params from TikTok URL for clean entity signal
+      siteDetails.contact.tiktok?.split('?')[0],
+    ].filter(Boolean),
     foundingLocation: {
       '@type': 'Place',
       name: 'Cikarang, Indonesia',
@@ -140,11 +142,7 @@ function JsonLd() {
     description: siteDetails.metadata.description,
     publisher: { '@id': `${baseUrl}#organization` },
     inLanguage: ['id-ID', 'en-US'],
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: { '@type': 'EntryPoint', url: `${baseUrl}/#features` },
-      'query-input': 'required name=search_term_string',
-    },
+    // SearchAction removed: /#features is not a real search endpoint
   };
 
   const appSchema = {

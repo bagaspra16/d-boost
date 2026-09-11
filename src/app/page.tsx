@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
@@ -10,6 +11,20 @@ import Container from "@/components/Container";
 import Section from "@/components/Section";
 import CTA from "@/components/CTA";
 import Features from "@/components/Features";
+import { siteDetails } from '@/data/siteDetails';
+
+const baseUrl = siteDetails.siteUrl;
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: baseUrl,
+    languages: {
+      'id-ID': baseUrl,
+      'en-US': baseUrl,
+    },
+  },
+};
+
 
 const HomePage: React.FC = () => {
   return (
