@@ -26,9 +26,9 @@ const About: React.FC = () => {
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     className="max-w-3xl mx-auto text-center mb-20 relative z-10"
                 >
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground tracking-tight leading-[1.1] mb-8">
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground tracking-tight leading-[1.1] mb-8">
                         {a.title1} <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-blue-800">
+                        <span className="font-playfair italic font-bold text-transparent bg-clip-text bg-gradient-to-r from-secondary to-blue-800">
                             {a.title2}
                         </span>
                     </h2>

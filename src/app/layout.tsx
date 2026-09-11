@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { GoogleAnalytics } from '@next/third-parties/google';
-import { Source_Sans_3, Manrope } from "next/font/google";
+import { Libre_Baskerville } from "next/font/google";
 import localFont from "next/font/local";
 
 import Header from "@/components/Header";
@@ -10,8 +10,28 @@ import { LanguageProvider } from '@/context/LanguageContext';
 
 import "./globals.css";
 
-const manrope = Manrope({ subsets: ['latin'] });
-const sourceSans = Source_Sans_3({ subsets: ['latin'] });
+const inter = localFont({
+  src: [
+    {
+      path: '../../inter/Inter-VariableFont_opsz,wght.ttf',
+      style: 'normal',
+    },
+    {
+      path: '../../inter/Inter-Italic-VariableFont_opsz,wght.ttf',
+      style: 'italic',
+    },
+  ],
+  variable: '--font-inter',
+  display: 'swap',
+});
+
+const baskerville = Libre_Baskerville({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-playfair',
+  display: 'swap',
+});
 
 const moniqa = localFont({
   src: [
@@ -229,7 +249,7 @@ export default function RootLayout({
   return (
     <html lang="id">
       <body
-        className={`${manrope.className} ${sourceSans.className} ${moniqa.variable} antialiased`}
+        className={`${inter.variable} ${baskerville.variable} ${moniqa.variable} ${inter.className} font-sans antialiased`}
       >
         <JsonLd />
         {siteDetails.googleAnalyticsId && <GoogleAnalytics gaId={siteDetails.googleAnalyticsId} />}

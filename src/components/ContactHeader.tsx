@@ -20,7 +20,7 @@ const ContactHeader: React.FC = () => {
                 </h2>
                 <p className="text-xl md:text-2xl text-foreground max-w-3xl mx-auto leading-relaxed">
                     {c.sectionSubtitle} <br className="hidden md:block" />
-                    <span className="font-semibold text-secondary">{c.sectionSubtitleAccent}</span>
+                    <span className="font-playfair italic font-bold text-secondary text-2xl md:text-3xl block mt-1">{c.sectionSubtitleAccent}</span>
                 </p>
             </motion.div>
         </div>

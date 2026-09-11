@@ -20,7 +20,7 @@ const PricingHeader: React.FC = () => {
                 </h2>
                 <p className="text-xl md:text-2xl text-foreground max-w-3xl mx-auto leading-relaxed">
                     {p.subtitle} <br className="hidden md:block" />
-                    <span className="font-semibold text-secondary">{p.subtitleAccent}</span>
+                    <span className="font-playfair italic font-bold text-secondary text-2xl md:text-3xl block mt-1">{p.subtitleAccent}</span>
                 </p>
             </motion.div>
         </div>

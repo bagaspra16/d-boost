@@ -23,7 +23,7 @@ const FAQ: React.FC = () => {
                     </p>
                     <a
                         href={`mailto:${siteDetails.contact.email}`}
-                        className="mt-3 block text-xl lg:text-4xl text-secondary font-semibold hover:underline text-center lg:text-left"
+                        className="mt-3 block text-xl lg:text-3xl text-secondary font-playfair font-bold hover:underline text-center lg:text-left"
                     >
                         {siteDetails.contact.email}
                     </a>

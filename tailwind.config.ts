@@ -19,6 +19,10 @@ const config: Config = {
         "hero-background": "rgb(var(--hero-background) / <alpha-value>)",
       },
       fontFamily: {
+        sans: ['var(--font-inter)', 'Inter', 'sans-serif'],
+        inter: ['var(--font-inter)', 'Inter', 'sans-serif'],
+        playfair: ['var(--font-playfair)', 'Libre Baskerville', 'Georgia', 'serif'],
+        serif: ['var(--font-playfair)', 'Libre Baskerville', 'Georgia', 'serif'],
         moniqa: ['var(--font-moniqa)', 'sans-serif'],
       },
     },

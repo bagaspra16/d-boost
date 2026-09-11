@@ -29,11 +29,11 @@ html {
 }
 
 body {
-  @apply text-lg;
+  @apply text-lg font-sans;
 
   color: var(--foreground);
   background: var(--background);
-  font-family: "Source Sans 3", sans-serif;
+  font-family: var(--font-inter), "Inter", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
 }
@@ -44,21 +44,28 @@ body {
   }
 }
 
-.manrope {
-  font-family: "Manrope", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-}
-
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-inter), "Inter", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
+}
+
+/* Libre Baskerville accent font for blue text elements */
+.font-playfair,
+.text-secondary,
+.text-blue-500,
+.text-blue-600,
+.text-blue-700,
+.text-blue-800,
+.text-blue-900,
+.text-blue-950,
+.gradient-blue-text {
+  font-family: var(--font-playfair), "Libre Baskerville", "Georgia", serif;
 }
 
 #logos svg {

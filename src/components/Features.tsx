@@ -13,7 +13,7 @@ const Features: React.FC = () => {
                         className="text-center group hover:scale-105 transition-transform duration-300"
                     >
                         <div className="mb-4">
-                            <h3 className="text-4xl lg:text-5xl font-bold text-secondary mb-2 group-hover:text-secondary/80 transition-colors">
+                            <h3 className="text-4xl lg:text-6xl font-playfair font-bold text-secondary mb-2 group-hover:text-secondary/80 transition-colors">
                                 {feature.value}
                             </h3>
                             <p className="text-xl lg:text-2xl font-semibold text-foreground">
