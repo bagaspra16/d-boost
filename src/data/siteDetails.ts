@@ -1,14 +1,14 @@
 export const siteDetails = {
     siteName: 'D-BOOST',
     /** Base URL for production (no trailing slash). Override with NEXT_PUBLIC_SITE_URL on Vercel. */
-    siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://d-boost.vercel.app',
+    siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://dboost.id',
     metadata: {
         title: 'D-BOOST – Aplikasi Manajemen Bisnis Digital untuk UMKM',
         titleTemplate: '%s | D-BOOST',
         description: 'D-BOOST adalah platform bisnis digital all-in-one untuk UMKM dan pengusaha Indonesia. Kelola penjualan, inventaris, laporan keuangan, dan dapatkan panduan AI dari Deby — semua dalam satu aplikasi. Coba gratis sekarang!',
         keywords: [
             // Brand
-            'D-BOOST', 'dboost', 'dboost app',
+            'D-BOOST', 'dboost', 'dboost.id', 'dboost app', 'dboost indonesia',
             // Indonesian UMKM terms
             'aplikasi UMKM', 'aplikasi manajemen bisnis', 'aplikasi kasir digital',
             'manajemen bisnis digital', 'sistem bisnis digital', 'platform UMKM Indonesia',
